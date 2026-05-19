@@ -9,7 +9,7 @@
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 # Disable the sound effects on boot
-sudo nvram StartupMute=%01
+# sudo nvram StartupMute=%01
 
 # Disable the “Are you sure you want to open this application?” dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
@@ -39,13 +39,13 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # Disable the warning before emptying the Trash
-defaults write com.apple.finder WarnOnEmptyTrash -bool false
+# defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 # Empty Trash securely by default
-defaults write com.apple.finder EmptyTrashSecurely -bool true
+# defaults write com.apple.finder EmptyTrashSecurely -bool true
 
 # Don’t animate opening applications from the Dock
-defaults write com.apple.dock launchanim -bool false
+# defaults write com.apple.dock launchanim -bool false
 
 # Show the ~/Library folder
 chflags nohidden ~/Library
@@ -54,7 +54,7 @@ chflags nohidden ~/Library
 sudo chflags nohidden /Volumes
 
 # Show only open applications in the Dock
-defaults write com.apple.dock static-only -bool true
+# defaults write com.apple.dock static-only -bool true
 
 # Disable the crash reporter
 defaults write com.apple.CrashReporter DialogType none
@@ -68,23 +68,23 @@ defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 sudo pmset -a lidwake 1
 
 # Automaticlly hide and show the menu bar
-defaults write NSGlobalDomain _HIHideMenuBar -bool true
-killall Dock
+# defaults write NSGlobalDomain _HIHideMenuBar -bool true
+# killall Dock
 
 # Disable the “power connected” chime (PowerChime)
 # This is the little ding you hear when plugging in a charger.
 # Safe to run multiple times.
-if [ "$(uname -s)" = "Darwin" ]; then
-  # Stop it if it's running (ignore error if not running)
-  killall PowerChime 2>/dev/null || true
+# if [ "$(uname -s)" = "Darwin" ]; then
+#   # Stop it if it's running (ignore error if not running)
+#   killall PowerChime 2>/dev/null || true
 
-  # These defaults reliably suppress the chime
-  defaults write com.apple.PowerChime ChimeOnNoHardware -bool true
-  defaults write com.apple.PowerChime ChimeOnAllHardware -bool false
+#   # These defaults reliably suppress the chime
+#   defaults write com.apple.PowerChime ChimeOnNoHardware -bool true
+#   defaults write com.apple.PowerChime ChimeOnAllHardware -bool false
 
-  # Apply immediately
-  killall PowerChime 2>/dev/null || true
-fi
+#   # Apply immediately
+#   killall PowerChime 2>/dev/null || true
+# fi
 
 # Set computer name (prompts for confirmation because this is user-specific)
 set_computer_name() {
