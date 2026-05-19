@@ -38,14 +38,17 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 # Disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-# Disable the warning before emptying the Trash
-# defaults write com.apple.finder WarnOnEmptyTrash -bool false
+# Disable the warning before emptying the Trash 
+# Enabled
+defaults write com.apple.finder WarnOnEmptyTrash -bool true
 
 # Empty Trash securely by default
-# defaults write com.apple.finder EmptyTrashSecurely -bool true
+# Disabled
+defaults write com.apple.finder EmptyTrashSecurely -bool false
 
 # Don’t animate opening applications from the Dock
-# defaults write com.apple.dock launchanim -bool false
+# Disabled
+defaults write com.apple.dock launchanim -bool true
 
 # Show the ~/Library folder
 chflags nohidden ~/Library
@@ -54,7 +57,8 @@ chflags nohidden ~/Library
 sudo chflags nohidden /Volumes
 
 # Show only open applications in the Dock
-# defaults write com.apple.dock static-only -bool true
+# Disabled
+defaults write com.apple.dock static-only -bool false
 
 # Disable the crash reporter
 defaults write com.apple.CrashReporter DialogType none
@@ -68,12 +72,14 @@ defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 sudo pmset -a lidwake 1
 
 # Automaticlly hide and show the menu bar
-# defaults write NSGlobalDomain _HIHideMenuBar -bool true
+# Disabled
+defaults write NSGlobalDomain _HIHideMenuBar -bool false
 # killall Dock
 
 # Disable the “power connected” chime (PowerChime)
 # This is the little ding you hear when plugging in a charger.
 # Safe to run multiple times.
+# Disabled
 # if [ "$(uname -s)" = "Darwin" ]; then
 #   # Stop it if it's running (ignore error if not running)
 #   killall PowerChime 2>/dev/null || true
